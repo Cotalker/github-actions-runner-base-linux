@@ -5,6 +5,14 @@ LABEL maintainer="myoung34@my.apsu.edu"
 ARG GH_RUNNER_VERSION="2.273.2"
 ARG TARGETPLATFORM
 
+### COTALKER ADD-ONS
+RUN apt update && apt upgrade -y
+RUN apt install wget
+RUN wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
+RUN export NVM_DIR="$HOME/.nvm"
+RUN bash "$NVM_DIR/nvm.sh"
+### END COTALKER ADD-ONS
+
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 WORKDIR /actions-runner
