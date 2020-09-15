@@ -1,16 +1,17 @@
 # hadolint ignore=DL3007
-FROM myoung34/github-runner-base:latest
+FROM myoung34/github-runner-base:ubuntu-focal
 LABEL maintainer="myoung34@my.apsu.edu"
 
 ARG GH_RUNNER_VERSION="2.273.2"
 ARG TARGETPLATFORM
 
-### COTALKER ADD-ONS
-RUN apt update && apt upgrade -y
-RUN apt install wget
-RUN wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
-RUN export NVM_DIR="$HOME/.nvm"
-RUN bash "$NVM_DIR/nvm.sh"
+### COTALKER ADDONS
+
+## NVM && NODE 14
+RUN curl -sL https://deb.nodesource.com/setup_14.x | sudo bash -
+RUN apt-get update && apt-get install nodejs -y
+## END NVM && NODE 14
+
 ### END COTALKER ADD-ONS
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
