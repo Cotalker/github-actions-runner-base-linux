@@ -27,7 +27,7 @@ docker run -d --restart always --name github-runner \
   -e LABELS="<user-name>" \
   -v /var/run/docker.sock:/var/run/docker.sock \
   -v /tmp/github-runner:/tmp/github-runner \
-  cotalker-github-runner:latest
+  336102453294.dkr.ecr.us-east-1.amazonaws.com/cotalker-github-actions:latest
 ```
 
 ## Original documentation ##
