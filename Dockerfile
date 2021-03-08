@@ -159,6 +159,16 @@ RUN if [ "$android_ndk" = true ] ; \
   fi
 ## END ANDROID ##
 
+## CYPRESS DEPENDENCIES ##
+RUN apt-get update && apt-get install --no-install-recommends -y \
+  xvfb \
+  libatk1.0-0 \
+  libatk-bridge2.0-0 \
+  libgdk-pixbuf2.0-bin \
+  libgtk-3-0 \
+  libgbm1
+## END CYPRESS ADDONS ##
+
 ### END COTALKER ADD-ONS ###
 
 WORKDIR /actions-runner
